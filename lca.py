@@ -1,4 +1,7 @@
 # Code taken from https://www.geeksforgeeks.org/lowest-common-ancestor-binary-tree-set-1/
+# This code is contributed by Nikhil Kumar Singh(nickzuck_007)
+
+import unittest
 
 # Python Program for Lowest Common Ancestor in a Binary Tree
 # O(n) solution to find LCS of two given values n1 and n2
@@ -60,20 +63,27 @@ def findLCA(root, n1, n2):
         i += 1
     return path1[i-1]
 
+# Mainline
+def main():
 
-# Driver program to test above function
-# Let's create the Binary Tree shown in above diagram
-root = Node(1)
-root.left = Node(2)
-root.right = Node(3)
-root.left.left = Node(4)
-root.left.right = Node(5)
-root.right.left = Node(6)
-root.right.right = Node(7)
+    # Driver program to test above function
+    # Let's create the Binary Tree shown in above diagram
+    root = Node(1)
+    root.left = Node(2)
+    root.right = Node(3)
+    root.left.left = Node(4)
+    root.left.right = Node(5)
+    root.right.left = Node(6)
+    root.right.right = Node(7)
 
-print "LCA(4, 5) = %d" %(findLCA(root, 4, 5,))
-print "LCA(4, 6) = %d" %(findLCA(root, 4, 6))
-print "LCA(3, 4) = %d" %(findLCA(root,3,4))
-print "LCA(2, 4) = %d" %(findLCA(root,2, 4))
+    print "LCA(4, 5) = %d" %(findLCA(root, 4, 5,))
+    print "LCA(4, 6) = %d" %(findLCA(root, 4, 6))
+    print "LCA(3, 4) = %d" %(findLCA(root,3,4))
+    print "LCA(2, 4) = %d" %(findLCA(root,2, 4))
 
-# This code is contributed by Nikhil Kumar Singh(nickzuck_007)
+# Unit Test cases
+class TestCases(unittest.TestCase):
+
+# If just called explicitly, run mainline
+if __name__ == "__main__":
+    main()
