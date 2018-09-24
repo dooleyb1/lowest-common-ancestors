@@ -33,6 +33,8 @@ func TestExampleTree(t *testing.T) {
     expectedLCA int
 	}{
 		{threeNode, sevenNode, zeroNode, 3},
+    {threeNode, sevenNode, fourNode, 2},
+    {threeNode, sixNode, fourNode, 5},
 	}
 
   // For every search root, x, y and expectedLCA in table do
