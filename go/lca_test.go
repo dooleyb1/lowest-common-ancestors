@@ -26,12 +26,24 @@ func TestExampleTree(t *testing.T) {
 	twoNode.Left = sevenNode
 	twoNode.Right = fourNode
 
-  // Expecting LCA of 7 and 0 to be 3 (root)
-	res1 := LowestCommonAncestor(threeNode, sevenNode, zeroNode)
+  tables := []struct {
+		root *ds.TreeNode
+		x *ds.TreeNode
+		y *ds.TreeNode
+    expectedLCA int
+	}{
+		{threeNode, sevenNode, zeroNode, 3},
+	}
 
-  if res1.Val != 3 {
-       t.Errorf("LCA was incorrect, received node.Val: %d, expected node.Val: %d.", res1.Val, 3)
-    }
+  // For every search root, x, y and expectedLCA in table do
+  for _, table := range tables {
+
+		res := LowestCommonAncestor(table.root, table.x, table.y)
+
+		if res.Val != table.expectedLCA {
+			t.Errorf("LCA of %d and %d with root %d was incorrect, got: %d, want: %d.", table.x.Val, table.y.Val, table.root.Val, res.Val, table.expectedLCA)
+		}
+	}
 
 
 }
