@@ -84,6 +84,41 @@ def main():
 # Unit Test cases
 class TestCases(unittest.TestCase):
 
+    # Test case for tree containing one node
+    def test_one_node(self):
+        root = Node(1)
+        self.assertEqual(findLCA(root, 1, 1), 1)
+
+    # Test case for tree containing 2 nodes (root and left)
+    def test_two_nodes_a(self):
+        root = Node(1)
+        root.left = Node(2)
+        self.assertEqual(findLCA(root, 1, 2), 1)
+
+    # Test case for tree containing 2 nodes (root and right)
+    def test_two_nodes_a(self):
+        root = Node(1)
+        root.right = Node(2)
+        self.assertEqual(findLCA(root, 1, 2), 1)
+
+    # Test case for tree containing 7 nodes (evenly balanced)
+    def test_balanced_tree(self):
+        root = Node(1)
+        root.left = Node(2)
+        root.right = Node(3)
+        root.left.left = Node(4)
+        root.left.right = Node(5)
+        root.right.left = Node(6)
+        root.right.right = Node(7)
+
+        # Various test cases for different nodes
+        self.assertEqual(findLCA(root, 4, 5), 2)
+        self.assertEqual(findLCA(root, 4, 6), 1)
+        self.assertEqual(findLCA(root, 3, 4), 1)
+        self.assertEqual(findLCA(root, 2, 4), 2)
+
+
+
 # If just called explicitly, run mainline
 if __name__ == "__main__":
-    main()
+    unittest.main()
