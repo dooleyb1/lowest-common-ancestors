@@ -63,26 +63,13 @@ def findLCA(root, n1, n2):
         i += 1
     return path1[i-1]
 
-# Mainline
-def main():
-
-    # Driver program to test above function
-    # Let's create the Binary Tree shown in above diagram
-    root = Node(1)
-    root.left = Node(2)
-    root.right = Node(3)
-    root.left.left = Node(4)
-    root.left.right = Node(5)
-    root.right.left = Node(6)
-    root.right.right = Node(7)
-
-    print "LCA(4, 5) = %d" %(findLCA(root, 4, 5,))
-    print "LCA(4, 6) = %d" %(findLCA(root, 4, 6))
-    print "LCA(3, 4) = %d" %(findLCA(root,3,4))
-    print "LCA(2, 4) = %d" %(findLCA(root,2, 4))
-
 # Unit Test cases
 class TestCases(unittest.TestCase):
+
+    # Test case for tree empty node
+    def test_empty_node(self):
+        root =  None
+        self.assertEquals(findLCA(root, 1, 1), -1)
 
     # Test case for tree containing one node
     def test_one_node(self):
@@ -96,7 +83,7 @@ class TestCases(unittest.TestCase):
         self.assertEqual(findLCA(root, 1, 2), 1)
 
     # Test case for tree containing 2 nodes (root and right)
-    def test_two_nodes_a(self):
+    def test_two_nodes_b(self):
         root = Node(1)
         root.right = Node(2)
         self.assertEqual(findLCA(root, 1, 2), 1)
@@ -116,6 +103,14 @@ class TestCases(unittest.TestCase):
         self.assertEqual(findLCA(root, 4, 6), 1)
         self.assertEqual(findLCA(root, 3, 4), 1)
         self.assertEqual(findLCA(root, 2, 4), 2)
+
+    # Test case for search with non-existant nodes
+    def test_search_for_non_existant_node(self):
+        root = Node(1)
+        root.left = Node(2)
+        root.right = Node(3)
+
+        self.assertEquals(findLCA(root, 1, 7), -1)
 
 
 
