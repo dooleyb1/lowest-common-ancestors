@@ -3,7 +3,6 @@ package main
 
 import (
 	ds "github.com/berryjam/leetcode-golang/datastructure"
-	"fmt"
 )
 
 func LowestCommonAncestor(root, p, q *ds.TreeNode) *ds.TreeNode {
@@ -58,34 +57,4 @@ func isAncestor(curNode, p *ds.TreeNode) bool {
 	}
 
 	return leftRes || rightRes
-}
-
-func TestLowestCommonAncestor(root, p, q *ds.TreeNode) {
-	res := LowestCommonAncestor(root, p, q)
-	fmt.Printf("Given root=%d p=%d q=%d,LCA=%d\n", root.Val, p.Val, q.Val, res.Val)
-}
-
-func main() {
-	threeNode := ds.NewTreeNode(3)
-	fiveNode := ds.NewTreeNode(5)
-	oneNode := ds.NewTreeNode(1)
-	sixNode := ds.NewTreeNode(6)
-	twoNode := ds.NewTreeNode(2)
-	zeroNode := ds.NewTreeNode(0)
-	eightNode := ds.NewTreeNode(8)
-	sevenNode := ds.NewTreeNode(7)
-	fourNode := ds.NewTreeNode(4)
-
-	threeNode.Left = fiveNode
-	threeNode.Right = oneNode
-	fiveNode.Left = sixNode
-	fiveNode.Right = twoNode
-	oneNode.Left = zeroNode
-	oneNode.Right = eightNode
-	twoNode.Left = sevenNode
-	twoNode.Right = fourNode
-
-	TestLowestCommonAncestor(threeNode, sevenNode, zeroNode)
-	TestLowestCommonAncestor(threeNode, sevenNode, fourNode)
-	TestLowestCommonAncestor(threeNode, sixNode, fourNode)
 }
