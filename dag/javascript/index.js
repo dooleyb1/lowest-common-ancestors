@@ -58,6 +58,7 @@ function lowestCommonAncestor(startNodes, readParents, cb) {
     if (walkerWithCommonAncestor) {
       // If only node in stack return node
       if (walkerStack.length == 1) {
+        console.log(walkerStack)
         return cb(null, node)
       } else {
         // Otherwise merge walker with current common ancestors
