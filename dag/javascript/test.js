@@ -1,0 +1,1 @@
+var findAncestor = require('./index')
