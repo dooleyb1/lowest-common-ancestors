@@ -1,7 +1,7 @@
 var findAncestor = require('../index');
 var assert = require('assert');
 
-describe('Basic DAG LCA Test', function () {
+describe('Basic DAG LCA Test: ', function () {
   // First create DAG
   var nodes = {
     1: [],
@@ -23,6 +23,20 @@ describe('Basic DAG LCA Test', function () {
   it('Should return the LCA of nodes [9,7] as node 5', function () {
     findAncestor([9,7], readParents, function(err, res) {
       assert.equal(res, 5);
+    })
+  });
+
+  // LCA Test for nodes [9,9] in DAG
+  it('Should return the LCA of nodes [9,9] as node 9', function () {
+    findAncestor([9,9], readParents, function(err, res) {
+      assert.equal(res, 9);
+    })
+  });
+
+  // LCA Test for nodes [4,7] in DAG
+  it('Should return the LCA of nodes [4,7] as node 2', function () {
+    findAncestor([4,7], readParents, function(err, res) {
+      assert.equal(res, 2);
     })
   });
 });
