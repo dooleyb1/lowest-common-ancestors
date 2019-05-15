@@ -1,4 +1,4 @@
-var findAncestor = require('../index');
+var findAncestor = require('../src/index');
 var assert = require('assert');
 
 describe('Basic DAG LCA Test 1: ', function () {
